@@ -13,8 +13,14 @@ Landing de una sola página para la formación de agentes de IA en WhatsApp.
 
 ## Deploy
 
-Es estático. Se sirve `index.html` tal cual desde la raíz. En Easypanel alcanza con
-un servicio de tipo estático apuntando a este repo.
+Es estático: no hay build step ni dependencias, se sirve `index.html` tal cual.
+
+El repo trae un `Dockerfile` (nginx alpine + `nginx.conf`) porque el servicio de
+Easypanel está configurado con método de build **Dockerfile**. El contenedor
+escucha en el **puerto 80**, así que el servicio en Easypanel tiene que apuntar ahí.
+
+Si en algún momento cambiás el método de build a *Static* o *Nixpacks*, el
+`Dockerfile` deja de usarse y se puede borrar junto con `nginx.conf`.
 
 ## Colores
 
