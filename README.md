@@ -41,19 +41,18 @@ Todo está en `:root`, al principio del `<style>`.
 
 ## Antes de publicar: completar los [PLACEHOLDER]
 
-Están marcados en rojo dentro de la página para que no se escapen. Quedan 5:
+Están marcados en rojo dentro de la página para que no se escapen. Quedan 2:
 
 | Dónde | Qué falta |
 |---|---|
-| Costos | `[PLACEHOLDER USD/mes]` — costo del VPS |
-| Costos | `[PLACEHOLDER]` — cuánto se consume en créditos de la API de Claude |
-| Precio | `[PLACEHOLDER]` — cuánto se cobra una implementación |
 | Preguntas | `[PLACEHOLDER]` — cuánto tiempo lleva |
 | Preguntas | `[PLACEHOLDER]` — qué pasa si me trabo |
 
-El cierre del precio fundador ya está cargado: **17 de agosto de 2026 a las 00:00**,
-en la respuesta "¿Hasta cuándo está el precio fundador?". Si la fecha se mueve, hay
-que cambiar el texto y también el atributo `datetime` del `<time>`.
+Ya están cargados:
+
+- **Cierre del precio fundador:** 17 de agosto de 2026 a las 00:00. Si la fecha se
+  mueve, hay que cambiar el texto y también el atributo `datetime` del `<time>`.
+- **Lo que se cobra una implementación:** `$2.000 - $3.300`, en el bloque de precio.
 
 Buscar `PLACEHOLDER` en `index.html`. Cuando estén todos completos se puede borrar
 la regla `.ph` del `<style>`, o dejarla: sin placeholders no pinta nada.
@@ -64,7 +63,8 @@ Cada sección arranca con un comentario HTML (`<!-- HERO -->`, `<!-- PRECIO -->`
 para ubicarse rápido.
 
 El link de WhatsApp aparece 4 veces (hero, precio, cierre y barra fija).
-Si cambia el número o el mensaje, hay que reemplazarlo en los 4.
+Si cambia el número o el mensaje, hay que reemplazarlo en los 4. El mensaje
+precargado va URL-encodeado: hoy es `Me gustaría ingresar a la formación`.
 
 ### Cambiar el logo
 
