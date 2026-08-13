@@ -1,0 +1,956 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Agentes de IA para WhatsApp — TEOTEC</title>
+<meta name="description" content="La formación donde montás la infraestructura, construís el agente sobre un negocio real y salís a conseguir los clientes.">
+<meta name="theme-color" content="#0E1116">
+<meta name="color-scheme" content="dark">
+<meta property="og:title" content="Armá agentes de IA para WhatsApp y vendelos como servicio">
+<meta property="og:description" content="La formación donde montás la infraestructura, construís el agente sobre un negocio real y salís a conseguir los clientes.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_AR">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+
+<style>
+/* ============================================================
+   TEOTEC — Landing formación agentes de IA para WhatsApp
+   Un solo archivo. Editá el copy en el HTML de más abajo.
+   Tokens de color y tipografía: acá arriba.
+   ============================================================ */
+
+:root{
+  --bg:            #0E1116;
+  --bg-soft:       #141922;
+  --bg-card:       #131820;
+  --line:          #232B36;
+  --line-soft:     #1B222C;
+
+  --text:          #ECEFF3;
+  --muted:         #A7B0BC;
+  --muted-dim:     #7E8894;
+
+  --gold:          #FFC94A;
+  --gold-dim:      #C79A2E;
+  --gold-glow:     rgba(255,201,74,.10);
+
+  --alert:         #FF6B6B;   /* solo para [PLACEHOLDER] */
+
+  --ff-title:      'Archivo', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --ff-body:       'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --ff-mono:       'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+
+  --wrap:          660px;
+  --pad:           22px;
+  --r:             14px;
+}
+
+*,*::before,*::after{ box-sizing:border-box; }
+html{ -webkit-text-size-adjust:100%; scroll-behavior:smooth; }
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--text);
+  font-family:var(--ff-body);
+  font-size:16px;
+  line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+  overflow-x:hidden;
+}
+img{ max-width:100%; display:block; }
+p{ margin:0 0 1em; }
+ul{ margin:0; padding:0; list-style:none; }
+a{ color:inherit; }
+
+h1,h2,h3{
+  font-family:var(--ff-title);
+  font-weight:700;
+  line-height:1.14;
+  letter-spacing:-.018em;
+  margin:0;
+  text-wrap:balance;
+}
+
+::selection{ background:var(--gold); color:#0E1116; }
+
+:focus-visible{
+  outline:2px solid var(--gold);
+  outline-offset:3px;
+  border-radius:4px;
+}
+
+/* ---------- layout ---------- */
+.wrap{
+  width:100%;
+  max-width:var(--wrap);
+  margin:0 auto;
+  padding-left:var(--pad);
+  padding-right:var(--pad);
+}
+section{ padding:64px 0; }
+.rule{
+  height:1px;
+  background:linear-gradient(90deg, transparent, var(--line), transparent);
+  border:0; margin:0;
+}
+
+/* ---------- piezas comunes ---------- */
+.eyebrow{
+  font-family:var(--ff-mono);
+  font-size:11.5px;
+  font-weight:500;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  color:var(--gold-dim);
+  margin:0 0 14px;
+  display:block;
+}
+h2{ font-size:clamp(1.5rem, 5.9vw, 2.05rem); margin-bottom:18px; }
+h3{ font-size:1.02rem; letter-spacing:-.01em; }
+.lead{ color:var(--muted); font-size:1.0rem; }
+.mono{ font-family:var(--ff-mono); font-variant-ligatures:none; }
+.small{ font-size:.86rem; line-height:1.6; color:var(--muted-dim); }
+
+/* placeholders a completar — visibles a propósito */
+.ph{
+  font-family:var(--ff-mono);
+  font-size:.86em;
+  color:var(--alert);
+  background:rgba(255,107,107,.09);
+  border:1px dashed rgba(255,107,107,.5);
+  border-radius:5px;
+  padding:1px 6px;
+  white-space:nowrap;
+}
+
+/* ---------- botones ---------- */
+.btn{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  width:100%;
+  min-height:56px;
+  padding:15px 22px;
+  background:var(--gold);
+  color:#0E1116;
+  font-family:var(--ff-body);
+  font-size:1.02rem;
+  font-weight:600;
+  letter-spacing:-.01em;
+  text-decoration:none;
+  border-radius:12px;
+  box-shadow:0 1px 0 rgba(255,255,255,.18) inset, 0 8px 26px -14px rgba(255,201,74,.7);
+  transition:transform .14s ease, filter .14s ease;
+}
+.btn:hover{ filter:brightness(1.06); }
+.btn:active{ transform:translateY(1px); }
+.btn svg{ flex:none; }
+.btn-lg{ min-height:62px; font-size:1.08rem; }
+
+/* ============================================================
+   HERO
+   ============================================================ */
+.hero{
+  min-height:100vh;
+  min-height:100svh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  padding:26px 0 30px;
+  position:relative;
+  background:
+    radial-gradient(120% 70% at 50% -10%, rgba(255,201,74,.075), transparent 62%),
+    var(--bg);
+}
+.hero-inner{ display:flex; flex-direction:column; flex:1; }
+.brand{
+  font-family:var(--ff-mono);
+  font-size:12px;
+  font-weight:700;
+  letter-spacing:.28em;
+  color:var(--gold);
+  padding-bottom:26px;
+}
+/* el bloque de contenido se centra en el espacio que sobra bajo la marca;
+   en pantallas bajas los márgenes auto colapsan solos y no rompe nada */
+.hero-body{ margin-top:auto; margin-bottom:auto; }
+.hero h1{
+  font-size:clamp(1.78rem, 7.8vw, 2.9rem);
+  margin-bottom:16px;
+}
+.hero .lead{
+  font-size:1.0rem;
+  max-width:36ch;
+  margin-bottom:26px;
+}
+
+.hero-price{
+  display:flex;
+  align-items:baseline;
+  flex-wrap:wrap;
+  gap:0 10px;
+  padding-top:20px;
+  border-top:1px solid var(--line);
+}
+.hero-price .amount{
+  font-family:var(--ff-mono);
+  font-weight:700;
+  font-size:clamp(1.6rem, 6.6vw, 2rem);
+  letter-spacing:-.02em;
+  color:var(--gold);
+  line-height:1.1;
+}
+.hero-price .sep{ color:var(--muted-dim); font-size:1.2rem; }
+.hero-price .tag{ font-size:.95rem; color:var(--text); font-weight:500; }
+.hero-price-sub{
+  font-family:var(--ff-mono);
+  font-size:.8rem;
+  letter-spacing:.04em;
+  color:var(--muted-dim);
+  margin-top:6px;
+  margin-bottom:22px;
+}
+.hero .note{
+  margin:12px 0 0;
+  font-size:.83rem;
+  line-height:1.55;
+  color:var(--muted-dim);
+  max-width:40ch;
+}
+.hero-end{ position:absolute; bottom:0; left:0; height:1px; width:100%; }
+
+/* pantallas bajas: apretamos para que el hero entre sin scroll */
+@media (max-height:760px){
+  .hero{ padding:20px 0 24px; }
+  .brand{ padding-bottom:18px; }
+  .hero h1{ font-size:clamp(1.62rem, 7.2vw, 2.05rem); margin-bottom:13px; }
+  .hero .lead{ font-size:.95rem; line-height:1.55; margin-bottom:20px; }
+  .hero-price{ padding-top:16px; }
+  .hero-price-sub{ margin-bottom:18px; }
+  .btn{ min-height:54px; }
+}
+@media (max-height:665px){
+  .hero{ padding:14px 0 16px; }
+  .brand{ padding-bottom:9px; }
+  .hero h1{ font-size:clamp(1.42rem, 6.2vw, 1.78rem); line-height:1.12; margin-bottom:8px; }
+  .hero .lead{ font-size:.88rem; line-height:1.45; margin-bottom:12px; }
+  .hero-price{ padding-top:10px; }
+  .hero-price-sub{ margin-top:4px; margin-bottom:11px; }
+  .hero .note{ font-size:.77rem; line-height:1.45; margin-top:8px; }
+  .btn{ min-height:50px; }
+}
+
+/* ============================================================
+   PARA QUIÉN ES
+   ============================================================ */
+.cols{ display:grid; gap:16px; }
+.col{
+  background:var(--bg-card);
+  border:1px solid var(--line-soft);
+  border-radius:var(--r);
+  padding:22px 20px 24px;
+}
+.col--yes{ border-color:rgba(255,201,74,.22); }
+.col h3{
+  font-family:var(--ff-mono);
+  font-size:11.5px;
+  font-weight:700;
+  letter-spacing:.15em;
+  text-transform:uppercase;
+  margin-bottom:16px;
+}
+.col--yes h3{ color:var(--gold); }
+.col--no h3{ color:var(--muted-dim); }
+.col li{
+  position:relative;
+  padding-left:20px;
+  margin-bottom:14px;
+  font-size:.96rem;
+  line-height:1.55;
+}
+.col li:last-child{ margin-bottom:0; }
+.col li::before{
+  content:"";
+  position:absolute;
+  left:0; top:.66em;
+  width:9px; height:1.5px;
+  border-radius:2px;
+}
+.col--yes li::before{ background:var(--gold); }
+.col--no li::before{ background:#3A424E; }
+.col--no li{ color:var(--muted); }
+
+/* ============================================================
+   QUÉ VAS A PODER HACER — cadena
+   ============================================================ */
+.chain{ margin-top:30px; }
+.chain li{
+  position:relative;
+  padding:0 0 26px 32px;
+  font-family:var(--ff-title);
+  font-weight:600;
+  font-size:1.06rem;
+  line-height:1.35;
+  letter-spacing:-.012em;
+}
+.chain li:last-child{ padding-bottom:0; }
+.chain li::before{           /* punto */
+  content:"";
+  position:absolute;
+  left:0; top:.36em;
+  width:10px; height:10px;
+  border-radius:50%;
+  background:var(--bg);
+  border:1.5px solid var(--gold-dim);
+}
+.chain li:last-child::before{ background:var(--gold); border-color:var(--gold); }
+.chain li::after{            /* línea que encadena */
+  content:"";
+  position:absolute;
+  left:4.5px; top:calc(.36em + 14px);
+  width:1px;
+  height:calc(100% - 14px);
+  background:linear-gradient(180deg, var(--line), var(--line-soft));
+}
+.chain li:last-child::after{ display:none; }
+
+/* ============================================================
+   LO QUE TE QUEDA — documentos
+   ============================================================ */
+.docs{ display:grid; gap:14px; margin-top:28px; }
+.doc{
+  position:relative;
+  background:linear-gradient(180deg, #161C25, var(--bg-card));
+  border:1px solid var(--line);
+  border-radius:12px;
+  padding:16px 18px 18px;
+  overflow:hidden;
+}
+.doc::before{                /* esquina doblada */
+  content:"";
+  position:absolute;
+  top:0; right:0;
+  border-width:0 16px 16px 0;
+  border-style:solid;
+  border-color:var(--bg) transparent;
+}
+.doc-file{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  font-family:var(--ff-mono);
+  font-size:11px;
+  letter-spacing:.06em;
+  color:var(--gold-dim);
+  margin-bottom:10px;
+}
+.doc-file::before{
+  content:"";
+  width:7px; height:9px;
+  border:1px solid var(--gold-dim);
+  border-radius:1px;
+  opacity:.8;
+}
+.doc h3{ font-size:1.02rem; margin-bottom:4px; }
+.doc p{ margin:0; font-size:.9rem; color:var(--muted); }
+.docs-note{
+  margin-top:24px;
+  padding-left:16px;
+  border-left:2px solid var(--gold-dim);
+  color:var(--muted);
+  font-size:.95rem;
+}
+
+/* ============================================================
+   QUÉ HAY ADENTRO HOY — estado
+   ============================================================ */
+.status{ margin-top:26px; }
+.status-block{ margin-bottom:26px; }
+.status-block:last-of-type{ margin-bottom:0; }
+.status-tag{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  font-family:var(--ff-mono);
+  font-size:11px;
+  font-weight:500;
+  letter-spacing:.15em;
+  text-transform:uppercase;
+  margin-bottom:12px;
+}
+.status-tag::before{
+  content:"";
+  width:8px; height:8px;
+  border-radius:50%;
+}
+.st-done{ color:var(--gold); }
+.st-done::before{ background:var(--gold); }
+.st-now{ color:#D9C58F; }
+.st-now::before{ background:transparent; box-shadow:inset 0 0 0 1.5px var(--gold-dim), inset -4px 0 0 0 var(--gold-dim); }
+.st-next{ color:var(--muted-dim); }
+.st-next::before{ background:transparent; box-shadow:inset 0 0 0 1.5px #3A424E; }
+
+.status li{
+  position:relative;
+  padding-left:18px;
+  margin-bottom:10px;
+  font-size:.97rem;
+  line-height:1.55;
+}
+.status li:last-child{ margin-bottom:0; }
+.status li::before{
+  content:"";
+  position:absolute; left:0; top:.68em;
+  width:8px; height:1.5px; border-radius:2px;
+  background:#3A424E;
+}
+.status-block--next li{ color:var(--muted); }
+.closing{
+  margin-top:28px;
+  padding-top:20px;
+  border-top:1px solid var(--line-soft);
+  color:var(--muted);
+  font-size:.95rem;
+}
+
+/* ============================================================
+   COSTOS
+   ============================================================ */
+.costs{
+  margin:26px 0 0;
+  border:1px solid var(--line-soft);
+  border-radius:var(--r);
+  background:var(--bg-card);
+  overflow:hidden;
+}
+.costs li{
+  padding:16px 18px;
+  border-bottom:1px solid var(--line-soft);
+  font-size:.96rem;
+  line-height:1.55;
+}
+.costs li:last-child{ border-bottom:0; }
+.costs .cost-name{ display:block; font-weight:500; margin-bottom:2px; }
+.costs .cost-val{ color:var(--muted); font-size:.9rem; }
+
+/* ============================================================
+   PRECIO
+   ============================================================ */
+.price-box{
+  background:
+    radial-gradient(120% 100% at 50% 0%, rgba(255,201,74,.07), transparent 70%),
+    var(--bg-card);
+  border:1px solid rgba(255,201,74,.24);
+  border-radius:18px;
+  padding:32px 22px;
+  text-align:center;
+}
+.price-amount{
+  font-family:var(--ff-mono);
+  font-weight:700;
+  font-size:clamp(2.4rem, 12vw, 3.4rem);
+  line-height:1;
+  letter-spacing:-.03em;
+  color:var(--gold);
+  display:block;
+}
+.price-label{
+  font-size:1rem;
+  font-weight:500;
+  margin-top:10px;
+}
+.price-next{
+  font-family:var(--ff-mono);
+  font-size:.85rem;
+  color:var(--muted);
+  margin-top:14px;
+}
+.price-terms{
+  font-family:var(--ff-mono);
+  font-size:.78rem;
+  letter-spacing:.03em;
+  color:var(--muted-dim);
+  margin-top:6px;
+  margin-bottom:26px;
+}
+.price-box .btn{ max-width:420px; margin:0 auto; }
+.price-context{
+  margin:20px auto 0;
+  max-width:44ch;
+  font-size:.87rem;
+  line-height:1.6;
+  color:var(--muted-dim);
+}
+
+/* ============================================================
+   PREGUNTAS
+   ============================================================ */
+.faq{ margin-top:26px; border-top:1px solid var(--line-soft); }
+.faq details{ border-bottom:1px solid var(--line-soft); }
+.faq summary{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:16px;
+  padding:20px 2px;
+  min-height:56px;
+  cursor:pointer;
+  list-style:none;
+  font-family:var(--ff-title);
+  font-weight:600;
+  font-size:1rem;
+  line-height:1.4;
+  letter-spacing:-.01em;
+}
+.faq summary::-webkit-details-marker{ display:none; }
+.faq summary::after{
+  content:"";
+  flex:none;
+  width:12px; height:12px;
+  margin-top:5px;
+  border-right:1.8px solid var(--gold);
+  border-bottom:1.8px solid var(--gold);
+  transform:rotate(45deg);
+  transition:transform .2s ease;
+}
+.faq details[open] summary::after{ transform:rotate(-135deg); margin-top:9px; }
+.faq .answer{
+  padding:0 2px 22px;
+  margin:0;
+  color:var(--muted);
+  font-size:.96rem;
+  max-width:56ch;
+}
+
+/* ============================================================
+   CIERRE + FOOTER
+   ============================================================ */
+.final{ text-align:center; padding:70px 0 56px; }
+.final p{
+  font-family:var(--ff-title);
+  font-weight:600;
+  font-size:clamp(1.2rem, 5.2vw, 1.5rem);
+  line-height:1.35;
+  letter-spacing:-.015em;
+  max-width:26ch;
+  margin:0 auto 28px;
+}
+.final .btn{ max-width:420px; margin:0 auto; }
+footer{
+  border-top:1px solid var(--line-soft);
+  padding:26px 0 calc(96px + env(safe-area-inset-bottom));
+  text-align:center;
+}
+footer .mark{
+  font-family:var(--ff-mono);
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:.28em;
+  color:var(--muted-dim);
+}
+
+/* ============================================================
+   BARRA FIJA MOBILE
+   ============================================================ */
+.stickybar{
+  position:fixed;
+  left:0; right:0; bottom:0;
+  z-index:50;
+  display:flex;
+  align-items:center;
+  gap:12px;
+  padding:10px 14px calc(10px + env(safe-area-inset-bottom));
+  background:rgba(14,17,22,.94);
+  -webkit-backdrop-filter:blur(12px);
+  backdrop-filter:blur(12px);
+  border-top:1px solid var(--line);
+  transform:translateY(110%);
+  opacity:0;
+  visibility:hidden;
+  transition:transform .28s ease, opacity .28s ease, visibility .28s;
+}
+body.bar-on .stickybar{ transform:translateY(0); opacity:1; visibility:visible; }
+.stickybar .sb-price{ flex:none; line-height:1.15; }
+.stickybar .sb-amount{
+  font-family:var(--ff-mono);
+  font-weight:700;
+  font-size:1.02rem;
+  color:var(--gold);
+  display:block;
+  letter-spacing:-.01em;
+}
+.stickybar .sb-tag{
+  font-size:10.5px;
+  color:var(--muted-dim);
+  display:block;
+  letter-spacing:.02em;
+}
+.stickybar .btn{
+  flex:1;
+  min-height:50px;
+  font-size:.94rem;
+  padding:12px 14px;
+  border-radius:11px;
+  box-shadow:none;
+}
+@media (max-width:359px){
+  .stickybar{ gap:10px; padding-left:12px; padding-right:12px; }
+  .stickybar .btn{ font-size:.86rem; padding:12px 10px; gap:0; }
+  .stickybar .btn svg{ display:none; }
+  .stickybar .sb-amount{ font-size:.96rem; }
+}
+@media (min-width:861px){
+  .stickybar{ display:none; }
+  footer{ padding-bottom:34px; }
+}
+@media (prefers-reduced-motion:reduce){
+  html{ scroll-behavior:auto; }
+  *,*::before,*::after{ transition-duration:.01ms !important; animation-duration:.01ms !important; }
+}
+
+/* ============================================================
+   DESKTOP / TABLET
+   ============================================================ */
+@media (min-width:620px){
+  :root{ --pad:32px; }
+  body{ font-size:17px; }
+  section{ padding:96px 0; }
+  .hero{ padding:40px 0 48px; }
+  .hero .lead{ font-size:1.12rem; max-width:44ch; }
+  .hero-price{ gap:0 12px; }
+  .hero .note{ font-size:.88rem; }
+  .btn{ width:auto; min-width:320px; }
+  .hero .btn{ display:inline-flex; }   /* que no ocupe todo el ancho en desktop */
+  .cols{ grid-template-columns:1fr 1fr; gap:18px; }
+  .col{ padding:26px 24px 28px; }
+  .chain li{ font-size:1.18rem; padding-bottom:30px; }
+  .docs{ gap:16px; }
+  .doc{ padding:20px 22px 22px; }
+  .price-box{ padding:44px 32px; }
+  .final{ padding:100px 0 80px; }
+  .final .btn, .price-box .btn{ display:flex; }
+}
+@media (min-width:900px){
+  :root{ --wrap:720px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════════════════════
+     HERO — precio visible sin scroll en mobile
+     ══════════════════════════════════════════════════════════ -->
+<header class="hero">
+  <div class="wrap hero-inner">
+    <div class="brand">TEOTEC</div>
+
+    <div class="hero-body">
+    <h1>Armá agentes de IA para WhatsApp y vendelos como servicio</h1>
+
+    <p class="lead">La formación donde montás la infraestructura, construís el agente sobre un negocio real y salís a conseguir los clientes.</p>
+
+    <div class="hero-price">
+      <span class="amount">USD 197</span>
+      <span class="sep">·</span>
+      <span class="tag">precio fundador</span>
+    </div>
+    <div class="hero-price-sub">Acceso de por vida</div>
+
+    <a class="btn" href="https://wa.me/542235858400?text=Hola%20Mateo%2C%20vi%20la%20landing%20y%20quiero%20entrar%20a%20la%20formaci%C3%B3n">
+      <svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm0 18.15h-.01a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.19 8.19 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24 2.2 0 4.27.86 5.83 2.42a8.19 8.19 0 0 1 2.41 5.83c0 4.54-3.7 8.23-8.24 8.23Zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.24-.64.8-.78.97-.15.16-.29.19-.53.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.5.11-.11.25-.29.37-.44.13-.15.17-.25.25-.41.08-.17.04-.31-.02-.44-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.43h-.47c-.17 0-.43.06-.66.31-.23.25-.86.85-.86 2.06s.89 2.39 1.01 2.56c.12.16 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.08.14-1.18-.06-.11-.22-.17-.47-.29Z"/></svg>
+      Escribime por WhatsApp
+    </a>
+    <p class="note">Se paga por transferencia. Me escribís, te paso los datos y te doy el acceso el mismo día.</p>
+    </div>
+  </div>
+  <div class="hero-end" id="hero-end" aria-hidden="true"></div>
+</header>
+
+<hr class="rule">
+
+<!-- ══════════════════════════════════════════════════════════
+     PARA QUIÉN ES
+     ══════════════════════════════════════════════════════════ -->
+<section id="para-quien">
+  <div class="wrap">
+    <span class="eyebrow">Para quién es</span>
+
+    <div class="cols">
+      <div class="col col--yes">
+        <h3>Es para vos si</h3>
+        <ul>
+          <li>Querés vender implementación de agentes de IA como servicio</li>
+          <li>Ya armaste algo y no supiste cómo cobrarlo</li>
+          <li>Tenés un negocio propio y querés automatizar tus mensajes entendiendo exactamente lo que estás armando</li>
+        </ul>
+      </div>
+
+      <div class="col col--no">
+        <h3>No es para vos si</h3>
+        <ul>
+          <li>Buscás un botón que lo haga todo solo</li>
+          <li>No estás dispuesto a sentarte a testear y corregir</li>
+          <li>Querés tener resultados esta semana</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="rule">
+
+<!-- ══════════════════════════════════════════════════════════
+     QUÉ VAS A PODER HACER — los seis pasos encadenados
+     ══════════════════════════════════════════════════════════ -->
+<section id="que-vas-a-hacer">
+  <div class="wrap">
+    <span class="eyebrow">Qué vas a poder hacer</span>
+    <h2>De cero a un agente vendido</h2>
+
+    <ul class="chain">
+      <li>Montar tu propia infraestructura</li>
+      <li>Conectar la API oficial de WhatsApp</li>
+      <li>Sacarle al cliente la información de cómo vende su negocio</li>
+      <li>Convertir eso en un agente que responde como responde él</li>
+      <li>Testearlo hasta que salga bien</li>
+      <li>Salir a conseguir los clientes</li>
+    </ul>
+  </div>
+</section>
+
+<hr class="rule">
+
+<!-- ══════════════════════════════════════════════════════════
+     LO QUE TE QUEDA — tratamiento de documentos
+     (los nombres de archivo son decorativos: cambialos si querés)
+     ══════════════════════════════════════════════════════════ -->
+<section id="lo-que-te-queda">
+  <div class="wrap">
+    <span class="eyebrow">Lo que te queda</span>
+    <h2>No te llevás videos.<br>Te llevás archivos tuyos.</h2>
+
+    <div class="docs">
+      <article class="doc">
+        <div class="doc-file mono">brief-comercial</div>
+        <h3>El brief comercial de tu cliente</h3>
+        <p>Cómo vende su negocio, documentado.</p>
+      </article>
+
+      <article class="doc">
+        <div class="doc-file mono">mapa-de-etapas</div>
+        <h3>El mapa de etapas de su venta</h3>
+      </article>
+
+      <article class="doc">
+        <div class="doc-file mono">system-prompt</div>
+        <h3>El system prompt de tu agente, armado</h3>
+      </article>
+    </div>
+
+    <p class="docs-note">Editables, y quedan con vos para siempre. El día que el agente responda algo que no te gusta, vas a saber exactamente de dónde salió esa línea.</p>
+  </div>
+</section>
+
+<hr class="rule">
+
+<!-- ══════════════════════════════════════════════════════════
+     QUÉ HAY ADENTRO HOY — estado real de la formación
+     ══════════════════════════════════════════════════════════ -->
+<section id="que-hay-adentro">
+  <div class="wrap">
+    <span class="eyebrow">Qué hay adentro hoy</span>
+    <h2>Te lo cuento como está</h2>
+    <p class="lead">La formación se está terminando de construir y entrás ahora justamente por eso. Esto es lo que hay:</p>
+
+    <div class="status">
+      <div class="status-block">
+        <span class="status-tag st-done">Ya publicado</span>
+        <ul>
+          <li>Infraestructura completa: servidor, herramientas, dominio propio</li>
+          <li>Conexión con la API oficial de WhatsApp</li>
+          <li>Tu primer agente respondiendo</li>
+        </ul>
+      </div>
+
+      <div class="status-block">
+        <span class="status-tag st-now">Esta semana</span>
+        <ul>
+          <li>El kit para construir el agente sobre un negocio real — la parte más importante</li>
+        </ul>
+      </div>
+
+      <div class="status-block status-block--next">
+        <span class="status-tag st-next">Después</span>
+        <ul>
+          <li>Herramientas y funcionalidades</li>
+          <li>Testeo y corrección</li>
+          <li>Conseguir clientes</li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="closing">El acceso es de por vida. Todo lo que suba, lo tenés sin pagar de nuevo.</p>
+  </div>
+</section>
+
+<hr class="rule">
+
+<!-- ══════════════════════════════════════════════════════════
+     LOS COSTOS QUE NO ESTÁN EN EL PRECIO
+     ══════════════════════════════════════════════════════════ -->
+<section id="costos">
+  <div class="wrap">
+    <span class="eyebrow">Transparencia</span>
+    <h2>Lo que cuesta además del curso</h2>
+    <p class="lead">Esto no lo dice casi nadie y prefiero que lo sepas antes de pagar.</p>
+
+    <ul class="costs">
+      <li>
+        <span class="cost-name">Un servidor propio (VPS)</span>
+        <span class="cost-val">desde <span class="ph">[PLACEHOLDER USD/mes]</span></span>
+      </li>
+      <li>
+        <span class="cost-name">Créditos de la API de Claude</span>
+        <span class="cost-val">se consumen por conversación, <span class="ph">[PLACEHOLDER]</span></span>
+      </li>
+      <li>
+        <span class="cost-name">La API de WhatsApp de Meta</span>
+        <span class="cost-val">se accede con la cuenta de tu cliente</span>
+      </li>
+    </ul>
+
+    <p class="closing">Una sola implementación cubre todo eso muchas veces. Adentro vemos cómo cotizar para que estos costos queden del lado del cliente y no del tuyo.</p>
+  </div>
+</section>
+
+<hr class="rule">
+
+<!-- ══════════════════════════════════════════════════════════
+     PRECIO
+     ══════════════════════════════════════════════════════════ -->
+<section id="precio">
+  <div class="wrap">
+    <div class="price-box">
+      <span class="price-amount">USD 197</span>
+      <div class="price-label">precio fundador</div>
+      <div class="price-next">Después pasa a USD 297</div>
+      <div class="price-terms">Acceso de por vida · Se paga por transferencia</div>
+
+      <a class="btn" href="https://wa.me/542235858400?text=Hola%20Mateo%2C%20vi%20la%20landing%20y%20quiero%20entrar%20a%20la%20formaci%C3%B3n">
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm0 18.15h-.01a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.19 8.19 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24 2.2 0 4.27.86 5.83 2.42a8.19 8.19 0 0 1 2.41 5.83c0 4.54-3.7 8.23-8.24 8.23Zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.24-.64.8-.78.97-.15.16-.29.19-.53.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.5.11-.11.25-.29.37-.44.13-.15.17-.25.25-.41.08-.17.04-.31-.02-.44-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.43h-.47c-.17 0-.43.06-.66.31-.23.25-.86.85-.86 2.06s.89 2.39 1.01 2.56c.12.16 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.08.14-1.18-.06-.11-.22-.17-.47-.29Z"/></svg>
+        Escribime por WhatsApp
+      </a>
+
+      <p class="price-context">Una implementación se cobra <span class="ph">[PLACEHOLDER]</span> más mantenimiento mensual. Un solo cliente paga esto muchas veces.</p>
+    </div>
+  </div>
+</section>
+
+<hr class="rule">
+
+<!-- ══════════════════════════════════════════════════════════
+     PREGUNTAS — acordeón nativo (details/summary), sin librerías
+     ══════════════════════════════════════════════════════════ -->
+<section id="preguntas">
+  <div class="wrap">
+    <span class="eyebrow">Preguntas</span>
+    <h2>Lo que me suelen preguntar</h2>
+
+    <div class="faq">
+      <details>
+        <summary>¿Necesito saber programar?</summary>
+        <p class="answer">No. Se trabaja con Claude Code. Lo que sí vas a aprender es a dirigirlo y a darte cuenta cuándo lo que armó está mal. Eso es el trabajo.</p>
+      </details>
+
+      <details>
+        <summary>¿Y si todavía no tengo cliente?</summary>
+        <p class="answer">Lo armás sobre un negocio que conozcas: el de un familiar, el de un amigo. Ese mismo te queda como primera demo para salir a vender.</p>
+      </details>
+
+      <details>
+        <summary>¿Cómo pago?</summary>
+        <p class="answer">Por transferencia. Me escribís por WhatsApp, te paso los datos y te doy el acceso el mismo día. Si estás en Argentina se puede en pesos.</p>
+      </details>
+
+      <details>
+        <summary>¿Hasta cuándo está el precio fundador?</summary>
+        <p class="answer"><span class="ph">[PLACEHOLDER DÍA Y HORA]</span>. Después pasa a USD 297.</p>
+      </details>
+
+      <details>
+        <summary>¿Cuánto tiempo me lleva?</summary>
+        <p class="answer"><span class="ph">[PLACEHOLDER]</span></p>
+      </details>
+
+      <details>
+        <summary>¿Qué pasa si me trabo?</summary>
+        <p class="answer"><span class="ph">[PLACEHOLDER]</span></p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════
+     CIERRE
+     ══════════════════════════════════════════════════════════ -->
+<section class="final">
+  <div class="wrap">
+    <p>Si llegaste hasta acá y tenés una duda, escribime y la charlamos. Contesto yo.</p>
+    <a class="btn btn-lg" href="https://wa.me/542235858400?text=Hola%20Mateo%2C%20vi%20la%20landing%20y%20quiero%20entrar%20a%20la%20formaci%C3%B3n">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm0 18.15h-.01a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.19 8.19 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24 2.2 0 4.27.86 5.83 2.42a8.19 8.19 0 0 1 2.41 5.83c0 4.54-3.7 8.23-8.24 8.23Zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.24-.64.8-.78.97-.15.16-.29.19-.53.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.5.11-.11.25-.29.37-.44.13-.15.17-.25.25-.41.08-.17.04-.31-.02-.44-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.43h-.47c-.17 0-.43.06-.66.31-.23.25-.86.85-.86 2.06s.89 2.39 1.01 2.56c.12.16 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.08.14-1.18-.06-.11-.22-.17-.47-.29Z"/></svg>
+      Escribime por WhatsApp
+    </a>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════
+     FOOTER
+     ══════════════════════════════════════════════════════════ -->
+<footer>
+  <div class="wrap"><span class="mark">TEOTEC</span></div>
+</footer>
+
+<!-- ══════════════════════════════════════════════════════════
+     BARRA FIJA MOBILE — aparece al pasar el hero
+     ══════════════════════════════════════════════════════════ -->
+<div class="stickybar" id="stickybar">
+  <div class="sb-price">
+    <span class="sb-amount">USD 197</span>
+    <span class="sb-tag">precio fundador</span>
+  </div>
+  <a class="btn" href="https://wa.me/542235858400?text=Hola%20Mateo%2C%20vi%20la%20landing%20y%20quiero%20entrar%20a%20la%20formaci%C3%B3n">
+    <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm0 18.15h-.01a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.19 8.19 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24 2.2 0 4.27.86 5.83 2.42a8.19 8.19 0 0 1 2.41 5.83c0 4.54-3.7 8.23-8.24 8.23Zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.24-.64.8-.78.97-.15.16-.29.19-.53.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.5.11-.11.25-.29.37-.44.13-.15.17-.25.25-.41.08-.17.04-.31-.02-.44-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.43h-.47c-.17 0-.43.06-.66.31-.23.25-.86.85-.86 2.06s.89 2.39 1.01 2.56c.12.16 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.08.14-1.18-.06-.11-.22-.17-.47-.29Z"/></svg>
+    Escribime por WhatsApp
+  </a>
+</div>
+
+<script>
+/* Único script del sitio: mostrar la barra fija al pasar el hero.
+   Sin tracking, sin cookies, sin librerías. */
+(function () {
+  var sentinel = document.getElementById('hero-end');
+  if (!sentinel) return;
+
+  if (!('IntersectionObserver' in window)) {
+    document.body.classList.add('bar-on');
+    return;
+  }
+
+  var io = new IntersectionObserver(function (entries) {
+    var e = entries[0];
+    var pasado = !e.isIntersecting && e.boundingClientRect.top < 0;
+    document.body.classList.toggle('bar-on', pasado);
+  }, { threshold: 0 });
+
+  io.observe(sentinel);
+})();
+</script>
+
+</body>
+</html>
